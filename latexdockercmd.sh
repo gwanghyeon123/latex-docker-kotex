@@ -1,3 +1,4 @@
-#!/bin/sh
-IMAGE=blang/latex:ctanbasic
-exec docker run --rm -i --user="$(id -u):$(id -g)" --net=none -v "$PWD":/data "$IMAGE" "$@"
+FROM ubuntu:xenial
+RUN apt-get update -y
+RUN apt-get install -y texlive-base
+RUN apt-get install -y ko.tex
